@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeRanger", "AgeRanger\AgeRanger.csproj", "{9F639A1D-67E5-4FE3-9011-55C5FD7D30A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgeRanger.Tests", "AgeRanger.Tests\AgeRanger.Tests.csproj", "{C751AD33-57B6-4BC8-81C6-B3FBF570F7CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{9F639A1D-67E5-4FE3-9011-55C5FD7D30A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F639A1D-67E5-4FE3-9011-55C5FD7D30A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F639A1D-67E5-4FE3-9011-55C5FD7D30A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C751AD33-57B6-4BC8-81C6-B3FBF570F7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C751AD33-57B6-4BC8-81C6-B3FBF570F7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C751AD33-57B6-4BC8-81C6-B3FBF570F7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C751AD33-57B6-4BC8-81C6-B3FBF570F7CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
