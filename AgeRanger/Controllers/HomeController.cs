@@ -1,4 +1,6 @@
-﻿using AgeRanger.Repository;
+﻿using System;
+using System.Collections.Generic;
+using AgeRanger.Repository;
 using System.Linq;
 using System.Web.Mvc;
 using AgeRanger.Models;
@@ -15,12 +17,22 @@ namespace AgeRanger.Controllers
             return View();
         }
 
-        public JsonResult GetItems()
+        public JsonResult GetItems(string searchTerm)
         {
             using (var dataContext = new AgeRangerContext())
             {
-                var items = dataContext.People.ToArray();
-                return Json(items, JsonRequestBehavior.AllowGet);
+                var items = dataContext.People.AsQueryable();
+
+                if (!String.IsNullOrWhiteSpace(searchTerm))
+                {
+                    items =
+                        items.Where(
+                            p =>
+                                p.FirstName.ToLower().Contains(searchTerm.ToLower()) ||
+                                p.LastName.ToLower().Contains(searchTerm.ToLower()));
+                }
+
+                return Json(items.ToArray(), JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -73,6 +85,5 @@ namespace AgeRanger.Controllers
                 return "Invalid person.";
             }
         }
-
     }
 }

@@ -1,8 +1,15 @@
 ﻿app.service("myService", function ($http) {
 
-    this.getItems = function () {
-        return $http.get("Home/GetItems");
-    };
+    this.getItems = function (searchTerm) {
+        var response = $http({
+            method: "post",
+            url: "Home/GetItems",
+            params: {
+                searchTerm: searchTerm
+            }
+        });
+        return response;
+    }
 
     this.getItem = function (id) {
         var response = $http({

@@ -1,18 +1,17 @@
 ﻿app.controller("myCntrl", function ($scope, myService) {
     $scope.divPerson = false;
 
-    function getAllItems() {
-        var getData = myService.getItems();
+    $scope.getItems = function () {
+        var getData = myService.getItems($scope.searchTerm);
 
         getData.then(function (result) {
-            console.log(JSON.stringify(result));
             $scope.items = result.data;
         }, function () {
             alert('Error in getting people.');
         });
     }
 
-    getAllItems();
+    $scope.getItems();
 
     $scope.AddUpdateItem = function () {
 
@@ -27,7 +26,7 @@
             item.Id = $scope.personId;
             var result = myService.updateItem(item);
             result.then(function (msg) {
-                getAllItems();
+                $scope.getItems();
                 $scope.divPerson = false;
             }, function () {
                 alert('Error in updating person.');
@@ -35,7 +34,7 @@
         } else {
             var getData = myService.addItem(item);
             getData.then(function(msg) {
-                getAllItems();
+                $scope.getItems();
                 $scope.divPerson = false;
             }, function() {
                 alert('Error in adding person.');
@@ -71,7 +70,5 @@
         $scope.Action = "Add";
         $scope.divPerson = true;
     }
-
-
 
 });

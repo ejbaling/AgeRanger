@@ -28,9 +28,12 @@
     </div>--%>
     <h1>Age Ranger</h1>
     <br/>
-               
+        
+    <input type="text" ng-model="searchTerm" />
+    <input type="button" class="btnSearch" value="Search" ng-click="getItems()" />
+    <br/>           
+    <br/>           
     <div class="divList">
-        <p class="divHead">Age Range List</p>
         <table cellpadding="12" class="table table-bordered table-hover" style="width: 50%;">
             <tr>
                 <td><b>Firsname</b></td>
