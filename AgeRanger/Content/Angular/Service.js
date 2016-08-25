@@ -1,7 +1,18 @@
 ﻿app.service("myService", function ($http) {
 
-    //get All Eployee
     this.getItems = function () {
         return $http.get("Home/GetItems");
     };
+
+    this.addItem = function (item) {
+
+        var response = $http({
+            method: "post",
+            url: "Home/AddItem",
+            data: JSON.stringify(item),
+            dataType: "json"
+        });
+
+        return response;
+    }
 });

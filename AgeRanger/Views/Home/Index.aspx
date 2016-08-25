@@ -28,7 +28,7 @@
     </div>--%>
     <h1>Age Ranger</h1>
     <br/>
-        
+               
     <div class="divList">
         <p class="divHead">Age Range List</p>
         <table cellpadding="12" class="table table-bordered table-hover" style="width: 50%;">
@@ -50,6 +50,46 @@
                 <td>
                     <span ng-click="editEmployee(employee)" class="btnAdd">Edit</span>
                     <span ng-click="deleteEmployee(employee)" class="btnRed">Delete</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+        
+    <input type="button" class="btnAdd" value="Add Person" ng-click="AddPersonDiv()" />
+        
+    <br/>
+    <br/>
+        
+    <div ng-show="divPerson">
+        <p class="divHead">{{Action}} Person Details</p>
+        <table>
+            <tr>
+                <td><b>Id</b></td>
+                <td style="padding-left: 20px;">
+                    <input type="text" disabled="disabled" ng-model="personId" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>First Name</b></td>
+                <td style="padding-left: 20px;">
+                    <input type="text" ng-model="personFirstName" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Last Name</b></td>
+                <td style="padding-left: 20px;">
+                    <input type="text" ng-model="personLastName" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Age</b></td>
+                <td style="padding-left: 20px;">
+                    <input type="text" ng-model="personAge" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" class="btnAdd" value="Save" ng-click="AddUpdateItem()" />
                 </td>
             </tr>
         </table>

@@ -1,6 +1,7 @@
 ﻿using AgeRanger.Repository;
 using System.Linq;
 using System.Web.Mvc;
+using AgeRanger.Models;
 
 namespace AgeRanger.Controllers
 {
@@ -20,6 +21,23 @@ namespace AgeRanger.Controllers
             {
                 var items = dataContext.People.ToArray();
                 return Json(items, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public string AddItem(Person p)
+        {
+            if (p != null)
+            {
+                using (var dataContext = new AgeRangerContext())
+                {
+                    dataContext.People.Add(p);
+                    dataContext.SaveChanges();
+                    return "Person added.";
+                }
+            }
+            else
+            {
+                return "Invalid Person.";
             }
         }
 
