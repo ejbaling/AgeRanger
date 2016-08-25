@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using AgeRanger.Models;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace AgeRanger.Repository
@@ -11,7 +12,7 @@ namespace AgeRanger.Repository
             Database.SetInitializer<AgeRangerContext>(null);    
         }
 
-        //public DbSet<Person> Person { get; set; }
+        public DbSet<Person> People { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

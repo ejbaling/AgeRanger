@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AgeRanger.Repository;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AgeRanger.Controllers
@@ -14,6 +12,15 @@ namespace AgeRanger.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public JsonResult GetItems()
+        {
+            using (var dataContext = new AgeRangerContext())
+            {
+                var items = dataContext.People.ToArray();
+                return Json(items, JsonRequestBehavior.AllowGet);
+            }
         }
 
     }
