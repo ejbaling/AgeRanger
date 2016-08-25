@@ -48,8 +48,7 @@
                     {{item.Age}}
                 </td>
                 <td>
-                    <span ng-click="editEmployee(employee)" class="btnAdd">Edit</span>
-                    <span ng-click="deleteEmployee(employee)" class="btnRed">Delete</span>
+                    <a href="#" ng-click="editItem(item)" class="btnAdd">Edit</a>
                 </td>
             </tr>
         </table>
@@ -61,7 +60,7 @@
     <br/>
         
     <div ng-show="divPerson">
-        <p class="divHead">{{Action}} Person Details</p>
+        <h2 class="divHead">{{Action}} Person Details</h2>
         <table>
             <tr>
                 <td><b>Id</b></td>
@@ -87,12 +86,11 @@
                     <input type="text" ng-model="personAge" />
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="button" class="btnAdd" value="Save" ng-click="AddUpdateItem()" />
-                </td>
-            </tr>
         </table>
+        <br/>
+        
+        <input type="button" class="btnAdd" value="Save" ng-click="AddUpdateItem()" />
+
     </div>
 </body>
 </html>

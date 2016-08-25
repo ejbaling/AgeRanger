@@ -24,6 +24,15 @@ namespace AgeRanger.Controllers
             }
         }
 
+        public JsonResult GetItem(int id)
+        {
+            using (var dataContext = new AgeRangerContext())
+            {
+                var item = dataContext.People.FirstOrDefault(p => p.Id == id);
+                return Json(item, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public string AddItem(Person p)
         {
             if (p != null)
@@ -38,6 +47,30 @@ namespace AgeRanger.Controllers
             else
             {
                 return "Invalid Person.";
+            }
+        }
+
+        public string UpdateItem(Person person)
+        {
+            if (person != null)
+            {
+                using (var dataContext = new AgeRangerContext())
+                {
+                    var p = dataContext.People.FirstOrDefault(e => e.Id == person.Id);
+                    if (p == null)
+                    {
+                        return "Invalid person.";
+                    }
+                    p.FirstName = person.FirstName;
+                    p.LastName = person.LastName;
+                    p.Age = person.Age;
+                    dataContext.SaveChanges();
+                    return "Person updated.";
+                }
+            }
+            else
+            {
+                return "Invalid person.";
             }
         }
 
