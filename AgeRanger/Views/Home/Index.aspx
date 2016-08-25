@@ -39,6 +39,7 @@
                 <td><b>Firsname</b></td>
                 <td><b>LastName</b></td>
                 <td><b>Age</b></td>
+                <td><b>Age Group Description</b></td>
                 <td><b>Actions</b></td>
             <tr ng-repeat="item in items">
                 <td>
@@ -49,6 +50,9 @@
                 </td>
                 <td>
                     {{item.Age}}
+                </td>
+                 <td>
+                    {{item.Description}}
                 </td>
                 <td>
                     <a href="#" ng-click="editItem(item)" class="btnAdd">Edit</a>

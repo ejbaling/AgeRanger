@@ -14,6 +14,8 @@ namespace AgeRanger.Repository
 
         public DbSet<Person> People { get; set; }
 
+        public DbSet<AgeGroup> AgeGroups { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Database does not pluralize table names
